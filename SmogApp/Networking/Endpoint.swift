@@ -19,7 +19,6 @@ extension Endpoint {
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
         components.path = path
-        components.query = apiKey
         return components
     }
     
@@ -41,17 +40,17 @@ enum SmogGET {
 extension SmogGET: Endpoint{
     
     var base: String{
-        return ""
+        return "http://api.gios.gov.pl"
     }
     
     var path: String {
         switch self {
         case .getAllStation:
-            return ""
+            return "/pjp-api/rest/station/findAll"
         case .getIndexOfStation(let id):
-            return ""
+            return "/pjp-api/rest/aqindex/getIndex/\(id)"
         case .getSensorsOfStation(let id):
-            return ""
+            return "/pjp-api/rest/station/sensors/\(id)"
         }
     }
     
