@@ -72,7 +72,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
         
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters // The accuracy of the location data
-        locationManager.distanceFilter = 100
+        locationManager.distanceFilter = 50
         locationManager.delegate = self
     }
     
@@ -94,10 +94,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
             return
         }
         
-        // singleton for get last(current) location
         lastLocation = location
-        
-        // use for real time update location
         updateLocation(location)
     }
     

@@ -9,10 +9,8 @@
 import UIKit
 
 
-class CitiesViewController: UIViewController,StationViewModelDelegate {
+class MainViewController: UIViewController,StationViewModelDelegate {
     
-    
-   
     private let viewModel = StationViewModel()
     
     override func viewDidLoad() {

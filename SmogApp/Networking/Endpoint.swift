@@ -34,7 +34,7 @@ enum SmogGET {
     case getAllStation
     case getIndexOfStation(id: Int)
     case getSensorsOfStation(id: Int)
-    
+    case getSensorsData(id: Int)
 }
 
 extension SmogGET: Endpoint{
@@ -51,6 +51,8 @@ extension SmogGET: Endpoint{
             return "/pjp-api/rest/aqindex/getIndex/\(id)"
         case .getSensorsOfStation(let id):
             return "/pjp-api/rest/station/sensors/\(id)"
+        case .getSensorsData(let id):
+            return "/pjp-api/rest/data/getData/\(id)"
         }
     }
     

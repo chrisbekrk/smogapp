@@ -19,7 +19,7 @@ class StationViewModel:LocationServiceDelegate{
     
     private let client = SmogClient()
     
-    private var lastLocation = CLLocation(latitude: 50.0610324, longitude: 19.9244222){
+    private var lastLocation = CLLocation(latitude: 52.0610324, longitude: 19.9244222){
         didSet {
             getTheNearest(currentLocation: lastLocation)
         }
@@ -31,23 +31,27 @@ class StationViewModel:LocationServiceDelegate{
         }
     }
     
+    private var nearestStation:Station?
+    
     init(){
-        
         LocationManager.sharedInstance.delegate = self
-        
-        client.get(from: .getAllStation) { [weak self] (result) in
+        getAllStations()
+    }
+    
+    func getAllStations(){
+
+        client.getAllStations { [weak self] (result) in
             switch result {
             case .success(let getAllStationResult):
                 guard let getAllStationResults = getAllStationResult else { return }
                 self?.stationsArray = getAllStationResults
-                //print(getAllStationResults)
+            //print(getAllStationResults)
             case .failure(let error):
                 print("the error \(error)")
             }
         }
-        
-        
     }
+    
     
     func getTheNearest(currentLocation: CLLocation){
         if stationsArray.count > 0 {
@@ -64,10 +68,31 @@ class StationViewModel:LocationServiceDelegate{
                     
                 }
             }
-            guard let nearestStation = closestStation else {
+            
+            guard let station = closestStation else {
                 return
             }
-            delegate?.setNewData(nearestStation: nearestStation)
+            if station.id != nearestStation?.id{
+                nearestStation = station
+                delegate?.setNewData(nearestStation: station)
+                getActualIndexOf(station: station)
+            }
+
+        }
+    }
+    
+    func getActualIndexOf(station:Station){
+        guard let stationId = station.id else{
+            return
+        }
+        client.getIndexOfStation(id: stationId) { [weak self] (result) in
+            switch result {
+            case .success(let getAirIndexResult):
+                guard let airIndex = getAirIndexResult else { return }
+                print(airIndex)
+            case .failure(let error):
+                print("the error \(error)")
+            }
         }
     }
     

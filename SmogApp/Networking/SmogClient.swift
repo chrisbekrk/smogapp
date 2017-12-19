@@ -25,14 +25,26 @@ class SmogClient: APIClient {
         self.init(configuration: .default)
     }
     
-    func get(from requestType: SmogGET, completion: @escaping (Result<[Station]?, APIError>) -> Void) {
+    func getAllStations(completion: @escaping (Result<[Station]?, APIError>) -> Void) {
         
-        let endpoint = requestType
+        let endpoint = SmogGET.getAllStation
         let request = endpoint.request
         
         fetch(with: request, decode: { json -> [Station]? in
-            guard let movieFeedResult = json as? [Station] else { return  nil }
-            return movieFeedResult
+            guard let stationResult = json as? [Station] else { return  nil }
+            return stationResult
         }, completion: completion)
     }
+    
+    func getIndexOfStation(id:Int, completion: @escaping (Result<AirIndex?, APIError>) -> Void) {
+        
+        let endpoint = SmogGET.getIndexOfStation(id: id)
+        let request = endpoint.request
+        
+        fetch(with: request, decode: { json -> AirIndex? in
+            guard let stationResult = json as? AirIndex else { return  nil }
+            return stationResult
+        }, completion: completion)
+    }
+    
 }
