@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-protocol LocationServiceDelegate {
+protocol LocationServiceDelegate:class {
     func tracingLocation(_ currentLocation: CLLocation)
     // func tracingLocationDidFailWithError(_ error: NSError)
 }
@@ -28,7 +28,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     private var locationManager: CLLocationManager?
     var lastLocation:CLLocation?
     
-    var delegate: LocationServiceDelegate?
+    weak var delegate: LocationServiceDelegate?
     
     deinit {
         destroyLocationManager()
@@ -71,8 +71,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         }
         
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest // The accuracy of the location data
-        locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters // The accuracy of the location data
+        locationManager.distanceFilter = 100
         locationManager.delegate = self
     }
     

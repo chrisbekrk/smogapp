@@ -19,6 +19,8 @@
 		02F458071FE933E70061872A /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F458061FE933E70061872A /* StationViewModel.swift */; };
 		02F4580B1FE9444C0061872A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4580A1FE9444C0061872A /* LocationManager.swift */; };
 		02F4580E1FE947A80061872A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F4580D1FE947A80061872A /* CoreLocation.framework */; };
+		02F458101FE94EF90061872A /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4580F1FE94EF90061872A /* City.swift */; };
+		02F458121FE953550061872A /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F458111FE953550061872A /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		02F458061FE933E70061872A /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
 		02F4580A1FE9444C0061872A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		02F4580D1FE947A80061872A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		02F4580F1FE94EF90061872A /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		02F458111FE953550061872A /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 				02F457DB1FE91E9E0061872A /* Assets.xcassets */,
 				02F457E01FE91E9E0061872A /* Info.plist */,
 				02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */,
+				02F458111FE953550061872A /* Storyboard.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				02F457FE1FE929D40061872A /* Station.swift */,
+				02F4580F1FE94EF90061872A /* City.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			files = (
 				02F457DF1FE91E9E0061872A /* LaunchScreen.storyboard in Resources */,
 				02F457DC1FE91E9E0061872A /* Assets.xcassets in Resources */,
+				02F458121FE953550061872A /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,7 @@
 			files = (
 				02F457F91FE928C10061872A /* Endpoint.swift in Sources */,
 				02F458031FE92C990061872A /* SmogClient.swift in Sources */,
+				02F458101FE94EF90061872A /* City.swift in Sources */,
 				02F457FF1FE929D40061872A /* Station.swift in Sources */,
 				02F458011FE92C5D0061872A /* GenericAPIClient.swift in Sources */,
 				02F458051FE9312E0061872A /* CitiesViewController.swift in Sources */,

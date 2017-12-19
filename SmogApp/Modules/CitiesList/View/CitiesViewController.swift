@@ -7,42 +7,32 @@
 //
 
 import UIKit
-import CoreLocation
 
-class CitiesViewController: UITableViewController,LocationServiceDelegate {
+
+class CitiesViewController: UIViewController,StationViewModelDelegate {
     
-    private let client = SmogClient()
+    
+   
+    private let viewModel = StationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LocationManager.sharedInstance.delegate = self
-        
-        client.get(from: .getAllStation) { [weak self] (result) in
-            switch result {
-            case .success(let getAllStationResult):
-                guard let getAllStationResults = getAllStationResult else { return }
-                print(getAllStationResults)
-            case .failure(let error):
-                print("the error \(error)")
-            }
-        }
-        
-        
+        viewModel.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
+/*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -52,7 +42,7 @@ class CitiesViewController: UITableViewController,LocationServiceDelegate {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
+*/
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -108,9 +98,8 @@ class CitiesViewController: UITableViewController,LocationServiceDelegate {
     }
     */
     
-    func tracingLocation(_ currentLocation: CLLocation) {
-        print(currentLocation)
+    func setNewData(nearestStation: Station) {
+        print(nearestStation)
     }
-    
 
 }
