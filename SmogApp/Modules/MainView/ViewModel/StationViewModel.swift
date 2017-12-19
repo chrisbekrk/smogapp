@@ -31,7 +31,23 @@ class StationViewModel:LocationServiceDelegate{
         }
     }
     
-    private var nearestStation:Station?
+    private var nearestStation:Station?{
+        didSet{
+            guard let station = nearestStation, let actualCity = station.city, let actualId = actualCity.id else{
+                return
+            }
+            if actualCityId != actualId{
+                actualCityId = actualId
+            }
+        }
+    }
+    private var actualCityId = 0{
+        didSet {
+            stationsOfActualCity = stationsArray.filter{ $0.city?.id == actualCityId}
+        }
+    }
+    
+    private var stationsOfActualCity = [Station]()
     
     init(){
         LocationManager.sharedInstance.delegate = self
@@ -75,13 +91,13 @@ class StationViewModel:LocationServiceDelegate{
             if station.id != nearestStation?.id{
                 nearestStation = station
                 delegate?.setNewData(nearestStation: station)
-                getActualIndexOf(station: station)
+               // getActualIndexOf(station: station)
             }
 
         }
     }
     
-    func getActualIndexOf(station:Station){
+    func getActualIndexOf(station:Station, completion: @escaping (_ result:AirIndex) -> Void){
         guard let stationId = station.id else{
             return
         }
@@ -89,7 +105,8 @@ class StationViewModel:LocationServiceDelegate{
             switch result {
             case .success(let getAirIndexResult):
                 guard let airIndex = getAirIndexResult else { return }
-                print(airIndex)
+                //print(airIndex)
+                completion(airIndex)
             case .failure(let error):
                 print("the error \(error)")
             }
@@ -100,6 +117,25 @@ class StationViewModel:LocationServiceDelegate{
         self.lastLocation = currentLocation
     }
     
+    func numberOfStationForActualCity() -> Int {
+        return stationsOfActualCity.count
+    }
+    
+    func stationNameToDisplay(for indexPath: IndexPath) -> String {
+        if let stationName = stationsOfActualCity[indexPath.row].stationName{
+            return stationName
+        }else{
+            return ""
+        }
+        
+    }
+    
+    func getAirIndex(for indexPath: IndexPath, completion: @escaping (_ result:AirIndex) -> Void) {
+        let station = stationsOfActualCity[indexPath.row]
+        getActualIndexOf(station: station, completion: { (airIndex) in
+            completion(airIndex)
+        })
+    }
     
 }
 

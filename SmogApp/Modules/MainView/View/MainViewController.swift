@@ -9,9 +9,12 @@
 import UIKit
 
 
-class MainViewController: UIViewController,StationViewModelDelegate {
+class MainViewController: UIViewController,StationViewModelDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     private let viewModel = StationViewModel()
+    
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,30 @@ class MainViewController: UIViewController,StationViewModelDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(viewModel.numberOfStationForActualCity())
+        return viewModel.numberOfStationForActualCity()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stationCell", for: indexPath) as? StationCollectionViewCell
+        cell?.stationNameLabel.text = viewModel.stationNameToDisplay(for: indexPath)
+        print("\(indexPath.row) \(cell?.stationNameLabel.text)")
+        viewModel.getAirIndex(for: indexPath) { (airIndex) in
+            print("\(airIndex.stIndexLevel?.indexLevelName)")
+            cell?.airIndexLabel.text = airIndex.stIndexLevel?.indexLevelName
+        }
+        
+        return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+    
+    
 
     // MARK: - Table view data source
 /*
@@ -97,6 +124,8 @@ class MainViewController: UIViewController,StationViewModelDelegate {
     */
     
     func setNewData(nearestStation: Station) {
+        self.cityNameLabel.text = nearestStation.city?.name
+        self.collectionView.reloadData()
         print(nearestStation)
     }
 
