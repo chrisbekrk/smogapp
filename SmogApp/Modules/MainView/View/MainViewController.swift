@@ -15,11 +15,14 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewLayout: StationCollectionViewLayout!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewModel.delegate = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,6 +33,11 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,10 +59,14 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width-20, height: collectionView.bounds.height)
     }
     
-    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let indexPath = collectionView.indexPathsForVisibleItems.first {
+            pageControl.currentPage = indexPath.row
+        }
+    }
 
     // MARK: - Table view data source
 /*
@@ -123,10 +135,29 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     }
     */
     
+    
+    
     func setNewData(nearestStation: Station) {
         self.cityNameLabel.text = nearestStation.city?.name
         self.collectionView.reloadData()
+        self.pageControl.numberOfPages = viewModel.numberOfStationForActualCity()
         print(nearestStation)
     }
 
 }
+
+class StationCollectionViewLayout: UICollectionViewFlowLayout {
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        
+        let pageWidth = itemSize.width + minimumLineSpacing
+        
+        let pagesCount = proposedContentOffset.x / pageWidth
+        let pages = round(pagesCount)
+        let rest = pagesCount - pages
+        
+        let closestPage = Int(pages + (rest <= 0.5 ? 0 : 1))
+        return CGPoint(x: pageWidth * CGFloat(closestPage), y: proposedContentOffset.y)
+    }
+}
+
