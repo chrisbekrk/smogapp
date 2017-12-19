@@ -13,6 +13,8 @@
 		02F457DC1FE91E9E0061872A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DB1FE91E9E0061872A /* Assets.xcassets */; };
 		02F457DF1FE91E9E0061872A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */; };
 		02F457EA1FE91E9E0061872A /* SmogAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F457E91FE91E9E0061872A /* SmogAppTests.swift */; };
+		02F457F91FE928C10061872A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F457F81FE928C10061872A /* Endpoint.swift */; };
+		02F457FF1FE929D40061872A /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F457FE1FE929D40061872A /* Station.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		02F457E51FE91E9E0061872A /* SmogAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmogAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F457E91FE91E9E0061872A /* SmogAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmogAppTests.swift; sourceTree = "<group>"; };
 		02F457EB1FE91E9E0061872A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F457F81FE928C10061872A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		02F457FE1FE929D40061872A /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,12 @@
 		02F457D31FE91E9E0061872A /* SmogApp */ = {
 			isa = PBXGroup;
 			children = (
-				02F457D41FE91E9E0061872A /* AppDelegate.swift */,
+				02F457F71FE91FB60061872A /* AppSettings */,
+				02F457F61FE91FA90061872A /* Modules */,
+				02F457F51FE91F960061872A /* SupportingFiles */,
+				02F457F41FE91F6C0061872A /* Networking */,
 				02F457D61FE91E9E0061872A /* ViewController.swift */,
 				02F457D81FE91E9E0061872A /* Main.storyboard */,
-				02F457DB1FE91E9E0061872A /* Assets.xcassets */,
-				02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */,
-				02F457E01FE91E9E0061872A /* Info.plist */,
 			);
 			path = SmogApp;
 			sourceTree = "<group>";
@@ -94,6 +98,72 @@
 				02F457EB1FE91E9E0061872A /* Info.plist */,
 			);
 			path = SmogAppTests;
+			sourceTree = "<group>";
+		};
+		02F457F41FE91F6C0061872A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02F457F81FE928C10061872A /* Endpoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		02F457F51FE91F960061872A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				02F457DB1FE91E9E0061872A /* Assets.xcassets */,
+				02F457E01FE91E9E0061872A /* Info.plist */,
+				02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		02F457F61FE91FA90061872A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				02F457FA1FE9294D0061872A /* CitiesList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		02F457F71FE91FB60061872A /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				02F457D41FE91E9E0061872A /* AppDelegate.swift */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
+		02F457FA1FE9294D0061872A /* CitiesList */ = {
+			isa = PBXGroup;
+			children = (
+				02F457FD1FE9296F0061872A /* ViewModel */,
+				02F457FC1FE929660061872A /* View */,
+				02F457FB1FE9295E0061872A /* Model */,
+			);
+			path = CitiesList;
+			sourceTree = "<group>";
+		};
+		02F457FB1FE9295E0061872A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02F457FE1FE929D40061872A /* Station.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02F457FC1FE929660061872A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02F457FD1FE9296F0061872A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				02F457D71FE91E9E0061872A /* ViewController.swift in Sources */,
+				02F457F91FE928C10061872A /* Endpoint.swift in Sources */,
+				02F457FF1FE929D40061872A /* Station.swift in Sources */,
 				02F457D51FE91E9E0061872A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
