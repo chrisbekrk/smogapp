@@ -75,12 +75,12 @@ class StationCollectionViewCell: UICollectionViewCell {
         }
         
         backgroundMaskView.layer.insertSublayer(gradientLayer, at: 0)
-        
+        changeFontColors()
     }
     
-    func changeFontColors(toWhite: Bool){
-        
-        
+    func changeFontColors(){
+        airIndexLabel.textColor = UIColor.white
+        stationNameLabel.textColor = UIColor.white
     }
     
     override var isHighlighted: Bool {
