@@ -91,7 +91,6 @@ class StationViewModel:LocationServiceDelegate{
             if station.id != nearestStation?.id{
                 nearestStation = station
                 delegate?.setNewData(nearestStation: station)
-               // getActualIndexOf(station: station)
             }
 
         }
@@ -102,11 +101,10 @@ class StationViewModel:LocationServiceDelegate{
             return
         }
         print(stationId)
-        client.getIndexOfStation(id: stationId) { [weak self] (result) in
+        client.getIndexOfStation(id: stationId) { (result) in
             switch result {
             case .success(let getAirIndexResult):
                 guard let airIndex = getAirIndexResult else { return }
-                //print(airIndex)
                 completion(airIndex)
             case .failure(let error):
                 print("the error \(error)")
@@ -128,7 +126,6 @@ class StationViewModel:LocationServiceDelegate{
         }else{
             return ""
         }
-        
     }
     
     func getAirIndex(for indexPath: IndexPath, completion: @escaping (_ result:AirIndex) -> Void) {

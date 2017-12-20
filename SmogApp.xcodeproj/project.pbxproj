@@ -12,6 +12,7 @@
 		0265791E1FE987A00069C450 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265791D1FE987A00069C450 /* Constants.swift */; };
 		026579201FE989D00069C450 /* StationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265791F1FE989D00069C450 /* StationCollectionViewCell.swift */; };
 		0266BE5E1FEA475C0025323C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266BE5D1FEA475C0025323C /* StyleManager.swift */; };
+		0266BE611FEA577B0025323C /* allStations.json in Resources */ = {isa = PBXBuildFile; fileRef = 0266BE601FEA577B0025323C /* allStations.json */; };
 		02F457D51FE91E9E0061872A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F457D41FE91E9E0061872A /* AppDelegate.swift */; };
 		02F457DC1FE91E9E0061872A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DB1FE91E9E0061872A /* Assets.xcassets */; };
 		02F457DF1FE91E9E0061872A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 		0265791D1FE987A00069C450 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0265791F1FE989D00069C450 /* StationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCollectionViewCell.swift; sourceTree = "<group>"; };
 		0266BE5D1FEA475C0025323C /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
+		0266BE601FEA577B0025323C /* allStations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allStations.json; sourceTree = "<group>"; };
 		02F457D11FE91E9E0061872A /* SmogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F457D41FE91E9E0061872A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02F457DB1FE91E9E0061872A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		0266BE5F1FEA574A0025323C /* JsonsToTests */ = {
+			isa = PBXGroup;
+			children = (
+				0266BE601FEA577B0025323C /* allStations.json */,
+			);
+			path = JsonsToTests;
+			sourceTree = "<group>";
+		};
 		02F457C81FE91E9E0061872A = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 				02F457F51FE91F960061872A /* SupportingFiles */,
 				02F457F41FE91F6C0061872A /* Networking */,
 				02F458091FE9442C0061872A /* Managers */,
+				0266BE5F1FEA574A0025323C /* JsonsToTests */,
 			);
 			path = SmogApp;
 			sourceTree = "<group>";
@@ -324,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02F457DF1FE91E9E0061872A /* LaunchScreen.storyboard in Resources */,
+				0266BE611FEA577B0025323C /* allStations.json in Resources */,
 				02F457DC1FE91E9E0061872A /* Assets.xcassets in Resources */,
 				02F458121FE953550061872A /* Storyboard.storyboard in Resources */,
 			);

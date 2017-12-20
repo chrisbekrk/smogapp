@@ -24,9 +24,7 @@ class StationCollectionViewCell: UICollectionViewCell {
         backgroundMaskView.layer.shadowOffset = CGSize(width: 2, height: 2)
         backgroundMaskView.layer.shadowRadius = 4
         backgroundMaskView.layer.cornerRadius = 8
-        
-        
-        //backgroundMaskView.layer.insertSublayer(gradient(frame: backgroundMaskView.bounds), at: 0)
+
     }
     
     func addGradientForIndex(idIndex: Int){
