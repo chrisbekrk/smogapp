@@ -67,6 +67,13 @@ class StationCollectionViewCell: UICollectionViewCell {
         
         gradientLayer.colors = [color1.cgColor, color2.cgColor]
         gradientLayer.shadowColor = color1.cgColor
+        
+        for (index,layer) in backgroundMaskView.layer.sublayers!.enumerated(){
+            if layer is CAGradientLayer{
+                backgroundMaskView.layer.sublayers?.remove(at: index)
+            }
+        }
+        
         backgroundMaskView.layer.insertSublayer(gradientLayer, at: 0)
         
     }
