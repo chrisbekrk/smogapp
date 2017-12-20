@@ -14,6 +14,10 @@ Głowne funcje zostały spełnione - aplikacja przedstawia jakość powietrza w 
 Projektowaniem UX sugerowałem się aktualnym designem z App Store (duże karty i cień pod nimi).
 Dużym blockerem było nie działające API które bardzo często nie odpowiada albo z dużym opóznieniem (mockowałem jsony ale brakuje pełnej dokumentacji)
 
+![Screenshot2](https://image.ibb.co/m7iD4m/Zrzut_ekranu_2017_12_20_o_14_13_07.png)
+![Screenshot1](https://image.ibb.co/cS7qjm/IMG_4661.png)
+
+
 ### DONE
 
 * Szkielet aplikacji
