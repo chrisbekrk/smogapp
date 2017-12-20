@@ -68,7 +68,10 @@ class StationCollectionViewCell: UICollectionViewCell {
         gradientLayer.colors = [color1.cgColor, color2.cgColor]
         gradientLayer.shadowColor = color1.cgColor
         
-        for (index,layer) in backgroundMaskView.layer.sublayers!.enumerated(){
+        guard let sublayers = backgroundMaskView.layer.sublayers else {
+            return
+        }
+        for (index,layer) in sublayers.enumerated(){
             if layer is CAGradientLayer{
                 backgroundMaskView.layer.sublayers?.remove(at: index)
             }
