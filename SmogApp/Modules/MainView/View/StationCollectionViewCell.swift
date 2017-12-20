@@ -28,7 +28,7 @@ class StationCollectionViewCell: UICollectionViewCell {
     }
     
     func addGradientForIndex(idIndex: Int){
-        var gradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         
         gradientLayer.frame = backgroundMaskView.bounds
         gradientLayer.masksToBounds = false
