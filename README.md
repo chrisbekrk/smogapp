@@ -27,6 +27,7 @@ Dużym blockerem było nie działające API które bardzo często nie odpowiada 
 ### TO DO
 
 * Dokończenie widoku zmiany miast i logiki.
+* Dodanie labelki z odleglością od stacji
 * Testy XCTestCase
 * Prace graficzne
 * Zmiana klas na realmowskie aby nie pobierac za każdym razem stacji
