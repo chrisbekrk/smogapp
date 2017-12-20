@@ -100,7 +100,7 @@ class StationViewModel:LocationServiceDelegate{
         guard let stationId = station.id else{
             return
         }
-        print(stationId)
+        
         client.getIndexOfStation(id: stationId) { (result) in
             switch result {
             case .success(let getAirIndexResult):

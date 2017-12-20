@@ -51,13 +51,13 @@ class StationCollectionViewCell: UICollectionViewCell {
         case 2:
             color1 = CustomColor.moderateAirIndexColor1
             color2 = CustomColor.moderateAirIndexColor2
-        case 4:
+        case 3:
             color1 = CustomColor.lowAirIndexColor1
             color2 = CustomColor.lowAirIndexColor2
-        case 5:
+        case 4:
             color1 = CustomColor.badAirIndexColor1
             color2 = CustomColor.badAirIndexColor2
-        case 6:
+        case 5:
             color1 = CustomColor.verybadAirIndexColor1
             color2 = CustomColor.verybadAirIndexColor2
         default:

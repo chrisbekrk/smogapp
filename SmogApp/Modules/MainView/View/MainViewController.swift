@@ -49,6 +49,7 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
         viewModel.getAirIndex(for: indexPath) { (airIndex) in
             cell?.airIndexLabel.text = airIndex.stIndexLevel?.indexLevelName
             cell?.addGradientForIndex(idIndex: (airIndex.stIndexLevel?.id)!)
+            print("\n")
         }
         
         return cell!
