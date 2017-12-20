@@ -17,17 +17,14 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: StationCollectionViewLayout!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewModel.delegate = self
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.collectionView.isHidden = true
+ 
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,10 +46,13 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stationCell", for: indexPath) as? StationCollectionViewCell
         cell?.stationNameLabel.text = viewModel.stationNameToDisplay(for: indexPath)
-        print("\(indexPath.row) \(cell?.stationNameLabel.text)")
+        
         viewModel.getAirIndex(for: indexPath) { (airIndex) in
-            print("\(airIndex.stIndexLevel?.indexLevelName)")
+            print(airIndex.stIndexLevel)
             cell?.airIndexLabel.text = airIndex.stIndexLevel?.indexLevelName
+            cell?.addGradientForIndex(idIndex: (airIndex.stIndexLevel?.id)!)
+            
+            
         }
         
         return cell!
@@ -139,9 +139,11 @@ class MainViewController: UIViewController,StationViewModelDelegate,UICollection
     
     func setNewData(nearestStation: Station) {
         self.cityNameLabel.text = nearestStation.city?.name
+        self.collectionView.isHidden = false
+        self.indicatorView.isHidden = true
         self.collectionView.reloadData()
         self.pageControl.numberOfPages = viewModel.numberOfStationForActualCity()
-        print(nearestStation)
+        
     }
 
 }

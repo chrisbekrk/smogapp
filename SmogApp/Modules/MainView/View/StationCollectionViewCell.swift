@@ -23,9 +23,59 @@ class StationCollectionViewCell: UICollectionViewCell {
         backgroundMaskView.layer.shadowOpacity = 0.2
         backgroundMaskView.layer.shadowOffset = CGSize(width: 2, height: 2)
         backgroundMaskView.layer.shadowRadius = 4
-        backgroundMaskView.layer.cornerRadius = 5
-       // layer.cornerRadius = 5
-        // Initialization code
+        backgroundMaskView.layer.cornerRadius = 8
+        
+        
+        //backgroundMaskView.layer.insertSublayer(gradient(frame: backgroundMaskView.bounds), at: 0)
+    }
+    
+    func addGradientForIndex(idIndex: Int){
+        var gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = backgroundMaskView.bounds
+        gradientLayer.masksToBounds = false
+        
+        gradientLayer.shadowOpacity = 0.2
+        gradientLayer.shadowOffset = CGSize(width: 2, height: 2)
+        gradientLayer.shadowRadius = 4
+        gradientLayer.cornerRadius = 8
+        
+        var color1 = CustomColor.unknowAirIndexColor1
+        var color2 = CustomColor.unknowAirIndexColor2
+        
+        switch idIndex {
+        case 0:
+            color1 = CustomColor.exelentAirIndexColor1
+            color2 = CustomColor.exelentAirIndexColor2
+        case 1:
+            color1 = CustomColor.goodAirIndexColor1
+            color2 = CustomColor.goodAirIndexColor2
+        case 2:
+            color1 = CustomColor.moderateAirIndexColor1
+            color2 = CustomColor.moderateAirIndexColor2
+        case 4:
+            color1 = CustomColor.lowAirIndexColor1
+            color2 = CustomColor.lowAirIndexColor2
+        case 5:
+            color1 = CustomColor.badAirIndexColor1
+            color2 = CustomColor.badAirIndexColor2
+        case 6:
+            color1 = CustomColor.verybadAirIndexColor1
+            color2 = CustomColor.verybadAirIndexColor2
+        default:
+            color1 = CustomColor.unknowAirIndexColor1
+            color2 = CustomColor.unknowAirIndexColor2
+        }
+        
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        gradientLayer.shadowColor = color1.cgColor
+        backgroundMaskView.layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
+    
+    func changeFontColors(toWhite: Bool){
+        
+        
     }
     
     override var isHighlighted: Bool {

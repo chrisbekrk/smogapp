@@ -61,7 +61,7 @@ class StationViewModel:LocationServiceDelegate{
             case .success(let getAllStationResult):
                 guard let getAllStationResults = getAllStationResult else { return }
                 self?.stationsArray = getAllStationResults
-            //print(getAllStationResults)
+          
             case .failure(let error):
                 print("the error \(error)")
             }
@@ -101,6 +101,7 @@ class StationViewModel:LocationServiceDelegate{
         guard let stationId = station.id else{
             return
         }
+        print(stationId)
         client.getIndexOfStation(id: stationId) { [weak self] (result) in
             switch result {
             case .success(let getAirIndexResult):

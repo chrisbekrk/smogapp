@@ -10,6 +10,7 @@ import UIKit
 
 class CitiesListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,11 @@ class CitiesListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func closeButtonClicked(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

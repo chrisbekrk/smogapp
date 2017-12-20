@@ -11,6 +11,7 @@
 		0265791B1FE9839E0069C450 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265791A1FE9839E0069C450 /* CitiesListViewController.swift */; };
 		0265791E1FE987A00069C450 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265791D1FE987A00069C450 /* Constants.swift */; };
 		026579201FE989D00069C450 /* StationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0265791F1FE989D00069C450 /* StationCollectionViewCell.swift */; };
+		0266BE5E1FEA475C0025323C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0266BE5D1FEA475C0025323C /* StyleManager.swift */; };
 		02F457D51FE91E9E0061872A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F457D41FE91E9E0061872A /* AppDelegate.swift */; };
 		02F457DC1FE91E9E0061872A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DB1FE91E9E0061872A /* Assets.xcassets */; };
 		02F457DF1FE91E9E0061872A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F457DD1FE91E9E0061872A /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 		0265791A1FE9839E0069C450 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
 		0265791D1FE987A00069C450 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0265791F1FE989D00069C450 /* StationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCollectionViewCell.swift; sourceTree = "<group>"; };
+		0266BE5D1FEA475C0025323C /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		02F457D11FE91E9E0061872A /* SmogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F457D41FE91E9E0061872A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02F457DB1FE91E9E0061872A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				02F4580A1FE9444C0061872A /* LocationManager.swift */,
+				0266BE5D1FEA475C0025323C /* StyleManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				02F458071FE933E70061872A /* StationViewModel.swift in Sources */,
 				02F4580B1FE9444C0061872A /* LocationManager.swift in Sources */,
 				0265791E1FE987A00069C450 /* Constants.swift in Sources */,
+				0266BE5E1FEA475C0025323C /* StyleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
